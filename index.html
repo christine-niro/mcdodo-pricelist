@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Mcdodo SRP Pricelist</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: sticky orange brand bar → control strip → table/grid; detail opens as a sheet */
+:root{
+  --brand:#FE5723; --brand-ink:#C2390B; --brand-soft:#FFF1EB;
+  --bg:#FAF8F7; --surface:#FFFFFF; --fg:#17120F; --muted:#6B605A; --line:#ECE6E2; --chip:#F3EEEB;
+  --warn-bg:#FDECEC; --warn-fg:#B42318; --vol:#1F6F5C; --vol-soft:#E6F3EF;
+  --display:"Lexend",Inter,system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --shadow:0 12px 40px rgba(60,25,10,.16);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --brand-ink:#FF8A61; --brand-soft:#3A1E14; --bg:#141110; --surface:#1D1917; --fg:#F4EEEA; --muted:#A99D96; --line:#2E2724; --chip:#27211E;
+  --warn-bg:#3B1716; --warn-fg:#FF9C94; --vol:#5CC9A7; --vol-soft:#16302A; --shadow:0 12px 40px rgba(0,0,0,.5); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --brand-ink:#FF8A61; --brand-soft:#3A1E14; --bg:#141110; --surface:#1D1917; --fg:#F4EEEA; --muted:#A99D96; --line:#2E2724; --chip:#27211E;
+  --warn-bg:#3B1716; --warn-fg:#FF9C94; --vol:#5CC9A7; --vol-soft:#16302A; --shadow:0 12px 40px rgba(0,0,0,.5); color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--body);font-size:14px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--brand)}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--brand);color:#fff}
+.bar .wrap{display:flex;align-items:center;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{height:26px;width:auto;display:block}
+.brand .tag{font-family:var(--display);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.55);border-radius:999px;white-space:nowrap}
+.bar nav{margin-left:auto;display:flex;gap:6px;align-items:center}
+.menu{position:relative}
+.menu>button{background:transparent;border:0;color:#fff;font-family:var(--display);font-weight:500;padding:8px 12px;border-radius:8px;display:flex;gap:6px;align-items:center}
+.menu>button:hover,.menu.open>button{background:rgba(255,255,255,.16)}
+.menu .pop{position:absolute;right:0;top:calc(100% + 6px);min-width:250px;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px;display:none}
+.menu.open .pop{display:block}
+.pop h6{margin:8px 10px 4px;font:600 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pop a,.pop button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:none;border:0;padding:9px 10px;border-radius:8px;color:var(--fg);text-decoration:none}
+.pop a:hover,.pop button:hover{background:var(--chip)}
+.pop small{color:var(--muted);display:block;font-size:12px}
+.pop .ico{width:28px;height:28px;border-radius:8px;background:var(--brand-soft);color:var(--brand-ink);display:grid;place-items:center;flex:none;font:600 11px var(--mono)}
+
+/* hero strip */
+.intro{padding-block:22px 6px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.intro h1{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.intro p{margin:4px 0 0;color:var(--muted)}
+.stamp{font:500 12px var(--mono);color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:8px;white-space:nowrap}
+
+/* controls */
+.controls{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:15;background:var(--bg);padding-block:12px 10px;border-bottom:1px solid var(--line)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{position:relative;flex:1 1 320px;min-width:0}
+.search input{width:100%;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);padding:0 40px 0 42px;outline:none}
+.search input:focus{border-color:var(--brand)}
+.search svg{position:absolute;left:14px;top:13px;color:var(--muted)}
+.search .clear{position:absolute;right:6px;top:6px;width:32px;height:32px;border:0;background:none;border-radius:8px;color:var(--muted)}
+.suggest{position:absolute;left:0;right:0;top:50px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none;z-index:5}
+.suggest.show{display:block}
+.suggest h6{margin:2px 4px 8px;font:600 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.suggest .chips{margin-bottom:10px}
+.sg-item{display:flex;gap:10px;align-items:center;padding:6px;border-radius:8px;cursor:pointer}
+.sg-item:hover,.sg-item.on{background:var(--chip)}
+.sg-item img,.sg-item .ph{width:36px;height:36px;object-fit:contain;border-radius:6px;background:#fff;flex:none}
+.sg-item b{font-weight:600;display:block;font-size:13px;line-height:1.25}
+.sg-item small{color:var(--muted);font:500 11px var(--mono)}
+.seg{display:inline-flex;background:var(--chip);border-radius:10px;padding:3px;gap:2px}
+.seg button{border:0;background:none;padding:7px 12px;border-radius:8px;font-weight:500;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg .k{font:600 10px var(--mono);letter-spacing:.06em;margin-left:4px;color:var(--brand-ink)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-weight:500;font-size:13px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.chip .n{font:500 11px var(--mono);color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip[aria-pressed="true"] .n{color:inherit;opacity:.7}
+.cats{margin-top:10px;overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap;padding-bottom:2px}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-block:12px 8px;color:var(--muted);font-size:13px}
+.meta b{color:var(--fg);font-family:var(--display)}
+select.sort{height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);padding:0 8px}
+
+/* table */
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{font:600 11px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 12px;border-bottom:1px solid var(--line);white-space:nowrap;user-select:none;position:sticky;top:0;background:var(--surface)}
+th.sortable{cursor:pointer}
+th.sortable:hover{color:var(--fg)}
+th .arr{opacity:.4;margin-left:3px}
+th.active .arr{opacity:1;color:var(--brand-ink)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--chip)}
+tbody tr:last-child td{border-bottom:0}
+.thumb{width:52px;height:52px;border-radius:8px;background:#fff;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.ph{display:grid;place-items:center;background:#FFF6F2;color:#FE5723;font:700 10px var(--display);letter-spacing:.04em;text-align:center}
+.pname{font-weight:600;line-height:1.3}
+.psub{color:var(--muted);font-size:12px;margin-top:2px}
+.mono{font:500 12.5px var(--mono);white-space:nowrap}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price{font-family:var(--display);font-weight:600;font-size:15px}
+.price.dp{color:var(--brand-ink)}
+.price.vdp{color:var(--vol)}
+th small.moq{display:block;font:500 10px var(--mono);letter-spacing:0;text-transform:none;color:var(--muted);margin-top:3px}
+.pill{display:inline-block;font:600 10.5px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:var(--chip);color:var(--muted);white-space:nowrap}
+.pill.stop{background:var(--warn-bg);color:var(--warn-fg)}
+.swatch{display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.swatch i{width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,.18);display:inline-block}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;cursor:pointer;text-align:left;min-width:0}
+.card:hover{border-color:var(--brand)}
+.card .img{aspect-ratio:1;max-width:100%;border-radius:10px;background:#fff;display:grid;place-items:center;overflow:hidden}
+.card .img img{width:88%;height:88%;object-fit:contain}
+.card .img.ph{font-size:13px}
+.card .top{display:flex;justify-content:space-between;gap:6px;align-items:center}
+.card .pname{font-size:13.5px}
+.card .prices{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.card .prices div{display:flex;flex-direction:column}
+.card .prices small{font:600 10px var(--display);letter-spacing:.1em;color:var(--muted)}
+.card .prices em.moq{font:500 10px var(--mono);font-style:normal;color:var(--vol);margin-top:1px}
+.empty{padding:60px 20px;text-align:center;color:var(--muted)}
+.empty b{display:block;font-family:var(--display);color:var(--fg);font-size:18px;margin-bottom:6px}
+.note{color:var(--muted);font-size:12.5px;padding-block:14px 4px}
+
+main{overflow-x:clip}
+footer{margin-top:28px;border-top:1px solid var(--line)}
+footer .wrap{padding-block:20px 32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+footer img{height:18px;width:auto;opacity:.9}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(20,10,5,.45);z-index:48;display:none}
+.scrim.show{display:block}
+.sheet{position:fixed;z-index:49;top:50%;left:50%;transform:translate(-50%,-50%);width:min(920px,calc(100vw - 32px));max-height:calc(100dvh - 48px);overflow:auto;background:var(--surface);border-radius:18px;box-shadow:var(--shadow);display:none}
+.sheet.show{display:block}
+.sheet .hd{position:sticky;top:0;background:var(--surface);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);z-index:1}
+.sheet .hd .mono{font-size:13px}
+.x{width:36px;height:36px;border-radius:10px;border:0;background:var(--chip);font-size:18px;line-height:1}
+.sheet .bd{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;padding:20px}
+.sheet .pic{aspect-ratio:1;max-width:100%;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.sheet .pic img{width:90%;height:90%;object-fit:contain}
+.sheet h2{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.2;margin:4px 0 6px;text-wrap:balance}
+.pbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0}
+.pbox div{background:var(--chip);border-radius:12px;padding:12px 14px}
+.pbox div.on{background:var(--brand-soft)}
+.pbox small{font:600 10.5px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.pbox b{font:700 22px var(--display);font-variant-numeric:tabular-nums}
+.pbox .dpv b{color:var(--brand-ink)}
+.pbox .vdpv b{color:var(--vol)}
+.pbox .vdpv.on{background:var(--vol-soft)}
+.pbox em{font:500 11px var(--mono);font-style:normal;color:var(--muted);display:block;margin-top:2px}
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0 0 14px;font-size:13px}
+dl.kv dt{color:var(--muted)}
+dl.kv dd{margin:0;font:500 12.5px var(--mono);word-break:break-all}
+dl.kv dd a{color:var(--brand-ink)}
+.feat{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.55;max-height:300px;overflow:auto}
+.sheet h4{font:600 11px var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 14px;font-weight:600;display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--fg)}
+.btn.pri{background:var(--brand);border-color:var(--brand);color:#fff}
+.altlink{background:none;border:0;padding:0;color:var(--brand-ink);font:inherit;text-decoration:underline;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:500;z-index:60;display:none;max-width:calc(100vw - 32px)}
+.toast.show{display:block}
+
+@media (max-width:720px){
+  .brand .tag{display:none}
+  .menu>button span.lbl{display:none}
+  .controls{top:calc(env(safe-area-inset-top,0px) + 50px)}
+  .sheet{top:auto;bottom:0;left:0;transform:none;width:100%;border-radius:18px 18px 0 0;max-height:92dvh;padding-bottom:env(safe-area-inset-bottom,0px)}
+  .sheet .bd{grid-template-columns:1fr}
+  .sheet .pic{max-width:260px;margin:0 auto;width:100%}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:10px}
+  .card .prices{gap:8px}
+  .price{font-size:14px}
+}
+
+/* Ask about Mcdodo */
+[hidden]{display:none!important}
+.askfab{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 16px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:35;display:flex;align-items:center;gap:8px;background:var(--brand);color:#fff;border:0;border-radius:999px;padding:12px 18px;font:600 14px var(--display);box-shadow:0 10px 30px rgba(254,87,35,.35)}
+.askfab svg{flex:none}
+.askpanel{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 16px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:45;width:min(420px,calc(100vw - 32px));height:min(620px,calc(100dvh - 120px));background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+.askpanel .ah{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--brand);color:#fff}
+.askpanel .ah b{font:600 15px var(--display);flex:1}
+.askpanel .ah small{display:block;font:400 11.5px var(--body);opacity:.85}
+.askpanel .ah button{background:rgba(255,255,255,.18);border:0;color:#fff;width:32px;height:32px;border-radius:9px}
+.alog{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:0}
+.msg{max-width:88%;padding:9px 12px;border-radius:14px;font-size:13.5px;line-height:1.5;overflow-wrap:anywhere}
+.msg.u{align-self:flex-end;background:var(--brand);color:#fff;border-bottom-right-radius:4px}
+.msg.a{align-self:flex-start;background:var(--chip);border-bottom-left-radius:4px}
+.msg.a ul{margin:4px 0;padding-left:18px}
+.msg.a p{margin:0 0 6px}.msg.a p:last-child{margin:0}
+.msg.err{background:var(--warn-bg);color:var(--warn-fg)}
+.msg .think{color:var(--muted);font-style:italic}
+.mchip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--brand);color:var(--brand-ink);background:var(--surface);border-radius:999px;padding:1px 8px;font:500 12px var(--mono);cursor:pointer;vertical-align:baseline}
+.mchip:hover{background:var(--brand-soft)}
+.astart{display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:13px}
+.astart button{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px;font-size:13px;color:var(--fg)}
+.astart button:hover{border-color:var(--brand)}
+.aform{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--surface)}
+.aform textarea{flex:1;min-width:0;resize:none;height:44px;max-height:120px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg);outline:none;font:inherit}
+.aform textarea:focus{border-color:var(--brand)}
+.aform button{border:0;border-radius:12px;padding:0 14px;font-weight:600;background:var(--brand);color:#fff}
+.aform button.stop{background:var(--fg);color:var(--bg)}
+.afoot{font-size:11px;color:var(--muted);padding:0 12px 8px;background:var(--surface)}
+@media (max-width:720px){.askfab span{display:none}.askfab{padding:14px}.askpanel{right:0;left:0;bottom:0;width:100%;height:88dvh;border-radius:18px 18px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
+@media (prefers-reduced-motion:no-preference){.card,.chip,.seg button{transition:background .15s,border-color .15s,color .15s}}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand"><img id="logo" alt="Mcdodo"><span class="tag">Pricelist</span></div>
+    <nav>
+      <div class="menu" id="mSupport">
+        <button type="button" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14"/><circle cx="12" cy="17.5" r=".5" fill="currentColor"/></svg><span class="lbl">Support</span></button>
+        <div class="pop" role="menu">
+          <h6>Mcdodo official</h6>
+          <a href="https://www.mcdodo.com/" target="_blank" rel="noopener"><span class="ico">WWW</span><span>Mcdodo website<small>Full product range and news</small></span></a>
+          <a href="https://www.mcdodo.com/" target="_blank" rel="noopener"><span class="ico">WTY</span><span>Warranty policy<small>Under Support on mcdodo.com</small></span></a>
+          <a href="https://www.mcdodo.com/" target="_blank" rel="noopener"><span class="ico">FAQ</span><span>FAQ &amp; contact<small>Under Support on mcdodo.com</small></span></a>
+          <h6>Philippines</h6>
+          <div style="padding:6px 10px 8px;font-size:13px;color:var(--muted)">Exclusively distributed in the Philippines by <b style="color:var(--fg)">Iontech Inc.</b> For orders and stock, contact your Iontech account manager.</div>
+        </div>
+      </div>
+      <div class="menu" id="mExport">
+        <button type="button" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg><span class="lbl">Export</span></button>
+        <div class="pop" role="menu">
+          <h6>Files · uses current filters</h6>
+          <button type="button" data-exp="pdf-quick"><span class="ico">PDF</span><span>Price list (quick)<small>One line per SKU, compact</small></span></button>
+          <button type="button" data-exp="pdf-catalog"><span class="ico">PDF</span><span>Product catalog<small>Photos, names and prices</small></span></button>
+          <h6>Data</h6>
+          <button type="button" data-exp="xlsx"><span class="ico">XLS</span><span>Excel (full details)<small>All fields incl. features</small></span></button>
+          <div id="expNote" style="padding:6px 10px;font-size:12px;color:var(--muted)"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap intro">
+    <div>
+      <h1>Mcdodo Philippines Price List</h1>
+      <p>Charging, cables, power banks and accessories. Simplifying your digital life.</p>
+    </div>
+    <span class="stamp" id="stamp"></span>
+  </div>
+
+  <div class="controls">
+    <div class="wrap">
+      <div class="row">
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Search model, name, material code or barcode" autocomplete="off" aria-label="Search products">
+          <button class="clear" id="qClear" type="button" aria-label="Clear search" hidden>✕</button>
+          <div class="suggest" id="suggest"></div>
+        </div>
+        <div class="seg" id="priceSeg" role="group" aria-label="Prices shown">
+          <button type="button" data-p="srp" aria-pressed="false">SRP<span class="k">RETAIL</span></button>
+          <button type="button" data-p="dp" aria-pressed="false">DP<span class="k">DEALER</span></button>
+          <button type="button" data-p="vol" aria-pressed="false">Vol DP<span class="k">MOQ 100</span></button>
+          <button type="button" data-p="all" aria-pressed="true">All</button>
+        </div>
+        <div class="seg" id="viewSeg" role="group" aria-label="Layout">
+          <button type="button" data-v="table" aria-pressed="true">≡ Table</button>
+          <button type="button" data-v="grid" aria-pressed="false">⊞ Grid</button>
+        </div>
+      </div>
+      <div class="chips cats" id="cats"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="meta">
+      <span id="count"></span>
+      <span>Sort <select class="sort" id="sort" aria-label="Sort products">
+        <option value="list">Pricelist order</option>
+        <option value="srp-asc">Price: low to high</option>
+        <option value="srp-desc">Price: high to low</option>
+        <option value="name">Name A–Z</option>
+        <option value="art">Model no.</option>
+      </select></span>
+    </div>
+    <div id="results"></div>
+    <p class="note">Click any row or card for full details. Prices in Philippine pesos (₱).<span id="volNote"> Volume DP applies to orders of at least 100 pcs.</span> Prices are subject to change without prior notice.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Distributed by <b style="color:var(--fg)">Iontech Inc.</b> · Exclusive distributor of Mcdodo in the Philippines</span>
+    <img id="flogo" alt="Mcdodo">
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="dTitle"></div>
+<div class="toast" id="toast" role="status"></div>
+<button type="button" class="askfab" id="askFab" hidden aria-haspopup="dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><span>Ask about Mcdodo</span></button>
+<div class="askpanel" id="askPanel" role="dialog" aria-label="Ask about Mcdodo" hidden>
+  <div class="ah"><div style="flex:1"><b>Ask about Mcdodo</b><small>Answers come from this pricelist</small></div><button type="button" id="askNew" aria-label="New chat" title="New chat">↺</button><button type="button" id="askClose" aria-label="Close">✕</button></div>
+  <div class="alog" id="aLog" aria-live="polite"></div>
+  <form class="aform" id="aForm"><textarea id="aIn" placeholder="Ask about a product, price or comparison…" aria-label="Your question"></textarea><button type="submit" id="aSend">Send</button></form>
+  <div class="afoot">AI answers can be wrong. Check prices on the product card before quoting.</div>
+</div>
+
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D=window.MCDD||{items:[],images:{}};
+const items=D.items.map((it,i)=>({...it,i,hay:[it.a,it.n,it.d,it.m,it.bc,it.c,it.s,it.cat].join(' ').toLowerCase()}));
+const byArt=Object.fromEntries(items.map(x=>[x.a,x]));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const peso=v=>v==null?'—':'₱'+v.toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const store={get(k,d){try{const v=localStorage.getItem('mcdd-pl:'+k);return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem('mcdd-pl:'+k,v)}catch(e){}}};
+const S={q:'',cat:'All',price:D.srpOnly?'srp':(({both:'all'})[store.get('price','all')]||store.get('price','all')),view:store.get('view','table'),sort:'list'};
+if(innerWidth<720&&!store.get('view',null))S.view='grid';
+$('#logo').src=D.logoWhite;$('#flogo').src=D.logo;
+$('#stamp').textContent=items.length+' SKUs · Updated '+D.updated;
+
+const PK={srp:['srp'],dp:['dp'],vol:['vdp'],all:['srp','dp','vdp']};
+const LBL={srp:'SRP',dp:'DP',vdp:'Volume DP'};
+const XL={srp:'SRP (PHP)',dp:'Dealer Price (PHP)',vdp:'Volume DP (PHP, MOQ 100 pcs)'};
+const keys=()=>D.srpOnly?['srp']:(PK[S.price]||PK.all);
+if(D.srpOnly){const ps=$('#priceSeg');if(ps)ps.remove();const vn=$('#volNote');if(vn)vn.remove()}
+const CAT_ORDER=['Cables','Chargers','Wireless Chargers','Power Banks','Adapters & Hubs','Car Accessories','Audio','Cases & Screen Protection','Lifestyle & Accessories'];
+const COLORS={black:'#1b1b1b',white:'#f5f5f5',khaki:'#c9b58f',beige:'#e3d4bb',orange:'#FE5723','desert gold':'#c8a77a',blue:'#3b6fd8',gray:'#8b8b8b',grey:'#8b8b8b',green:'#4b8a5a',pink:'#f2a7b8',purple:'#8a6bd1',silver:'#c0c0c0'};
+const img=(a,cls)=>D.images[a]?`<img src="${D.images[a]}" alt="" loading="lazy">`:`<span class="ph ${cls||''}" style="width:100%;height:100%">${esc(a)}</span>`;
+const swatch=c=>c?`<span class="swatch"><i style="background:${COLORS[c.toLowerCase()]||'#ccc'}"></i>${esc(c)}</span>`:'<span class="psub">—</span>';
+
+function filtered(){
+  const terms=S.q.toLowerCase().split(/\s+/).filter(Boolean);
+  let r=items.filter(x=>(S.cat==='All'||x.cat===S.cat)&&terms.every(t=>x.hay.includes(t)));
+  const by={'srp-asc':(a,b)=>a.srp-b.srp,'srp-desc':(a,b)=>b.srp-a.srp,name:(a,b)=>a.n.localeCompare(b.n),art:(a,b)=>a.a.localeCompare(b.a),list:(a,b)=>a.i-b.i}[S.sort];
+  return r.slice().sort(by);
+}
+function renderCats(){
+  const base=items.filter(x=>{const t=S.q.toLowerCase().split(/\s+/).filter(Boolean);return t.every(w=>x.hay.includes(w))});
+  const counts={};base.forEach(x=>counts[x.cat]=(counts[x.cat]||0)+1);
+  const list=['All',...CAT_ORDER.filter(c=>items.some(x=>x.cat===c))];
+  $('#cats').innerHTML=list.map(c=>`<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="${S.cat===c}">${esc(c==='All'?'All products':c)}<span class="n">${c==='All'?base.length:(counts[c]||0)}</span></button>`).join('');
+}
+function priceCells(x){
+  return keys().map(k=>`<td class="num"><span class="price ${k}">${peso(x[k])}</span></td>`).join('');
+}
+function sortArrow(k){const m={srp:['srp-asc','srp-desc'],name:['name'],art:['art']}[k];const on=m&&m.includes(S.sort);return `<span class="arr">${on&&S.sort==='srp-desc'?'↓':on?'↑':'↕'}</span>`}
+function render(){
+  const r=filtered();
+  $('#count').innerHTML=`<b>${r.length}</b> of ${items.length} products${S.cat!=='All'?' in '+esc(S.cat):''}${S.q?' matching “'+esc(S.q)+'”':''}`;
+  if(!r.length){$('#results').innerHTML=`<div class="empty"><b>No products match</b>Try a model number like CA-4410, or a word like “GaN”, “Qi2” or “lanyard”.</div>`;return}
+  if(S.view==='table'){
+    const ph=keys().map((k,n)=>`<th class="num${n===0?' sortable':''}"${n===0?' data-s="srp"':''}>${k==='dp'?'Dealer price':LBL[k]} ₱${n===0?sortArrow('srp'):''}${k==='vdp'?'<small class="moq">MOQ 100 pcs</small>':''}</th>`).join('');
+    $('#results').innerHTML=`<div class="tablebox"><table><thead><tr><th></th><th class="sortable" data-s="name">Product${sortArrow('name')}</th><th class="sortable" data-s="art">Model no.${sortArrow('art')}</th><th>Material code</th><th>Color</th><th>Category</th>${ph}</tr></thead><tbody>${r.map(x=>`<tr data-a="${x.a}" tabindex="0"><td><div class="thumb">${img(x.a)}</div></td><td><div class="pname">${esc(x.n)}</div>${x.st?`<span class="pill stop">${esc(x.st)}</span>`:x.s?`<div class="psub">${esc(x.s)}</div>`:''}</td><td class="mono">${x.a}</td><td class="mono">${esc(x.m)||'—'}</td><td>${swatch(x.c)}</td><td><span class="pill">${esc(x.cat)}</span></td>${priceCells(x)}</tr>`).join('')}</tbody></table></div>`;
+    document.querySelectorAll('th.sortable').forEach(th=>{const k=th.dataset.s;const on=(k==='srp'&&S.sort.startsWith('srp'))||S.sort===k;th.classList.toggle('active',on)});
+  }else{
+    $('#results').innerHTML=`<div class="grid">${r.map(x=>`<button type="button" class="card" data-a="${x.a}"><div class="img ${D.images[x.a]?'':'ph'}">${img(x.a)}</div><div class="top"><span class="mono">${x.a}</span>${x.st?'<span class="pill stop">Stopped</span>':swatch(x.c)}</div><div class="pname">${esc(x.n)}</div><div class="prices">${keys().map(k=>`<div><small>${k==='vdp'?'VOL DP':LBL[k]}</small><span class="price ${k}">${peso(x[k])}</span>${k==='vdp'?'<em class="moq">MOQ 100 pcs</em>':''}</div>`).join('')}</div></button>`).join('')}</div>`;
+  }
+}
+function syncSegs(){
+  document.querySelectorAll('#priceSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===S.price));
+  document.querySelectorAll('#viewSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===S.view));
+  $('#sort').value=S.sort;
+}
+function all(){renderCats();syncSegs();render()}
+
+/* events */
+$('#priceSeg')&&$('#priceSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.price=b.dataset.p;store.set('price',S.price);all()});
+$('#viewSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.view=b.dataset.v;store.set('view',S.view);all()});
+$('#cats').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;S.cat=b.dataset.cat;all()});
+$('#sort').addEventListener('change',e=>{S.sort=e.target.value;render()});
+$('#results').addEventListener('click',e=>{
+  const th=e.target.closest('th.sortable');
+  if(th){const k=th.dataset.s;S.sort=k==='srp'?(S.sort==='srp-asc'?'srp-desc':'srp-asc'):(S.sort===k?'list':k);syncSegs();render();return}
+  const t=e.target.closest('[data-a]');if(t)openSheet(t.dataset.a);
+});
+$('#results').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.closest('tr[data-a]');if(t)openSheet(t.dataset.a)}});
+
+/* search + suggestions */
+const q=$('#q'),sg=$('#suggest');
+const TOP=['GaN','Qi2','Power bank','Lanyard','Magnetic','Auto power off','iPhone 17','Car charger','Hub','240W'];
+let sgIdx=-1,tm;
+function showSuggest(){
+  const v=q.value.trim().toLowerCase();
+  let h='';
+  if(!v){h=`<h6>Top searches</h6><div class="chips">${TOP.map(t=>`<button type="button" class="chip" data-t="${esc(t)}">${esc(t)}</button>`).join('')}</div><h6>Suggested products</h6>`+['CH-1533','MC-7810','CA-9920','HP-8220'].filter(a=>byArt[a]).map(a=>sgRow(byArt[a])).join('')}
+  else{const terms=v.split(/\s+/);const m=items.filter(x=>terms.every(t=>x.hay.includes(t))).slice(0,6);h=m.length?`<h6>Products</h6>`+m.map(sgRow).join(''):''}
+  sg.innerHTML=h;sg.classList.toggle('show',!!h);sgIdx=-1;
+}
+const sgRow=x=>`<div class="sg-item" data-a="${x.a}"><span class="thumb" style="width:36px;height:36px">${img(x.a)}</span><span style="min-width:0"><b>${esc(x.n)}</b><small>${x.a} · ${peso(x[keys()[0]])}</small></span></div>`;
+q.addEventListener('focus',showSuggest);
+q.addEventListener('input',()=>{$('#qClear').hidden=!q.value;showSuggest();clearTimeout(tm);tm=setTimeout(()=>{S.q=q.value.trim();all()},120)});
+q.addEventListener('keydown',e=>{
+  const rows=[...sg.querySelectorAll('.sg-item')];
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!rows.length)return;sgIdx=(sgIdx+(e.key==='ArrowDown'?1:-1)+rows.length)%rows.length;rows.forEach((r,i)=>r.classList.toggle('on',i===sgIdx))}
+  else if(e.key==='Enter'){if(sgIdx>=0&&rows[sgIdx]){openSheet(rows[sgIdx].dataset.a)}sg.classList.remove('show');q.blur()}
+  else if(e.key==='Escape'){sg.classList.remove('show');q.blur()}
+});
+sg.addEventListener('mousedown',e=>{e.preventDefault();const t=e.target.closest('[data-t]');if(t){q.value=t.dataset.t;$('#qClear').hidden=false;S.q=q.value;all();showSuggest();return}const a=e.target.closest('[data-a]');if(a){sg.classList.remove('show');q.blur();openSheet(a.dataset.a)}});
+q.addEventListener('blur',()=>setTimeout(()=>sg.classList.remove('show'),100));
+$('#qClear').addEventListener('click',()=>{q.value='';$('#qClear').hidden=true;S.q='';all();q.focus()});
+
+/* menus */
+document.querySelectorAll('.menu>button').forEach(b=>b.addEventListener('click',e=>{const m=b.parentElement;const open=!m.classList.contains('open');document.querySelectorAll('.menu').forEach(x=>{x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')});if(open){m.classList.add('open');b.setAttribute('aria-expanded','true')}e.stopPropagation()}));
+document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelectorAll('.menu').forEach(x=>x.classList.remove('open'))});
+
+/* detail sheet */
+let lastFocus=null;
+function openSheet(a){
+  const x=byArt[a];if(!x)return;lastFocus=document.activeElement;
+  const alt=x.alt?x.alt.split(/[,/\s]+/).filter(Boolean).map(s=>byArt[s]?`<button type="button" class="altlink" data-alt="${s}">${s}</button>`:esc(s)).join(', '):'';
+  $('#sheet').innerHTML=`<div class="hd"><span class="mono">${x.a} · ${esc(x.cat)}</span><button class="x" type="button" id="dClose" aria-label="Close">✕</button></div>
+  <div class="bd"><div><div class="pic ${D.images[x.a]?'':'ph'}">${img(x.a)}</div>${D.images[x.a]?'':'<p class="psub" style="text-align:center">Photo not in the product file yet</p>'}</div>
+  <div style="min-width:0">${x.st?`<span class="pill stop">${esc(x.st)}</span>`:x.s?`<span class="pill">${esc(x.s)}</span>`:''}
+  <h2 id="dTitle">${esc(x.n)}</h2><div class="psub">${esc(x.d)}</div>
+  <div class="pbox">${(D.srpOnly?['srp']:['srp','dp','vdp']).map(k=>`<div class="${k}v ${keys().includes(k)?'on':''}"><small>${k==='srp'?'SRP · Retail':k==='dp'?'DP · Dealer':'Volume DP'}</small><b>${peso(x[k])}</b>${k==='vdp'?'<em>MOQ 100 pcs</em>':''}</div>`).join('')}</div>
+  <dl class="kv"><dt>Model no.</dt><dd>${x.a}</dd><dt>Material code</dt><dd>${esc(x.m)||'—'}</dd><dt>Color</dt><dd>${esc(x.c)||'—'}</dd>${x.bc?`<dt>Barcode</dt><dd>${esc(x.bc)}</dd>`:''}${x.q?`<dt>Qty / carton</dt><dd>${esc(x.q)} pcs</dd>`:''}${alt?`<dt>Alternative</dt><dd>${alt}</dd>`:''}${x.kv?`<dt>Images &amp; videos</dt><dd><a href="${esc(x.kv)}" target="_blank" rel="noopener">Open Dropbox folder ↗</a></dd>`:''}</dl>
+  ${x.f?`<h4>Features &amp; specifications</h4><div class="feat">${esc(x.f)}</div>`:''}
+  <div class="actions"><button class="btn pri" type="button" id="dCopy">Copy for chat</button>${x.kv?`<a class="btn" href="${esc(x.kv)}" target="_blank" rel="noopener">Product photos ↗</a>`:''}</div></div></div>`;
+  $('#scrim').classList.add('show');$('#sheet').classList.add('show');$('#dClose').focus();
+  $('#dClose').onclick=closeSheet;
+  $('#sheet').querySelectorAll('[data-alt]').forEach(b=>b.onclick=()=>openSheet(b.dataset.alt));
+  $('#dCopy').onclick=()=>{
+    const lines=[`Mcdodo ${x.a} – ${x.n}`,x.c?`Color: ${x.c}`:'',...keys().map(k=>k==='vdp'?`Volume DP (MOQ 100 pcs): ${peso(x.vdp)}`:k==='dp'?`Dealer price: ${peso(x.dp)}`:`SRP: ${peso(x.srp)}`)].filter(Boolean).join('\n');
+    copy(lines);
+  };
+}
+function closeSheet(){$('#scrim').classList.remove('show');$('#sheet').classList.remove('show');if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+$('#scrim').addEventListener('click',closeSheet);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#sheet').classList.contains('show'))closeSheet()});
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2600)}
+function copy(text){
+  const fb=()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copied')}catch(e){toast('Select the text to copy it')}ta.remove()};
+  try{navigator.clipboard.writeText(text).then(()=>toast('Copied'),fb)}catch(e){fb()}
+}
+
+/* exports */
+let dl=null;
+(async()=>{try{dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null}catch(e){dl=null}
+  if(!dl&&window.claude){document.querySelectorAll('[data-exp]').forEach(b=>b.disabled=true);$('#expNote').textContent='Downloads are not available in this view. Open the page on claude.ai to export.'}})();
+const loaded={};
+function load(src){return loaded[src]||(loaded[src]=new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('Could not load '+src));document.head.appendChild(s)}))}
+async function save(filename,data){
+  if(!dl){if(window.claude){toast('Downloads are not available here');return}const u=URL.createObjectURL(data instanceof Blob?data:new Blob([data]));const a=document.createElement('a');a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);toast('Saved '+filename);return}
+  try{await dl.save({filename,data});toast('Saved '+filename)}catch(e){if(e&&e.code==='declined')return;toast(e&&e.code==='rate_limited'?'A save prompt is already open':'Could not save the file')}
+}
+const today=()=>new Date().toISOString().slice(0,10);
+const scope=()=>(S.cat==='All'?'All products':S.cat)+(S.q?` · “${S.q}”`:'');
+async function toJpeg(a){
+  const src=D.images[a];if(!src)return null;
+  return new Promise(res=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(im,0,0);res(c.toDataURL('image/jpeg',.82))};im.onerror=()=>res(null);im.src=src});
+}
+async function logoPng(){return D.logo}
+async function exportPdf(kind){
+  toast('Preparing PDF…');
+  await load('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+  await load('https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js');
+  const {jsPDF}=window.jspdf;const r=filtered();
+  const doc=new jsPDF({unit:'pt',format:'a4',orientation:kind==='quick'?'portrait':'portrait'});
+  const W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight();
+  const orange=[254,87,35];const L=await logoPng();
+  const head=()=>{doc.setFillColor(...orange);doc.rect(0,0,W,46,'F');doc.addImage(D.logoWhite,'PNG',28,14,84,18.4);doc.setTextColor(255);doc.setFontSize(9);doc.text(`PRICELIST · ${D.updated.toUpperCase()}`,W-28,27,{align:'right'})};
+  const foot=()=>{const n=doc.internal.getNumberOfPages();for(let i=1;i<=n;i++){doc.setPage(i);doc.setFontSize(7.5);doc.setTextColor(120);doc.text('Distributed by Iontech Inc. · Prices in PHP, subject to change without prior notice. · Generated '+today(),28,H-18);doc.text(i+' / '+n,W-28,H-18,{align:'right'})}};
+  const cols=[['Model no.','a'],['Product','n'],['Color','c']];
+  keys().forEach(k=>cols.push([k==='vdp'?'Vol DP (MOQ 100)':k==='dp'?'Dealer price':'SRP',k]));const PKEYS=['srp','dp','vdp'];
+  if(kind==='quick'){
+    head();doc.setTextColor(30);doc.setFontSize(15);doc.text('Mcdodo Philippines Price List',28,74);doc.setFontSize(9);doc.setTextColor(110);doc.text(scope()+' · '+r.length+' SKUs',28,88);
+    const groups=CAT_ORDER.filter(c=>r.some(x=>x.cat===c));const body=[];
+    groups.forEach(g=>{body.push([{content:g.toUpperCase(),colSpan:cols.length,styles:{fillColor:[255,241,235],textColor:[194,57,11],fontStyle:'bold',fontSize:8}}]);r.filter(x=>x.cat===g).forEach(x=>body.push(cols.map(([,k])=>PKEYS.includes(k)?peso(x[k]).replace('₱','P '):(k==='n'&&x.st?x.n+' ('+x.st+')':x[k]||''))))});
+    doc.autoTable({startY:98,head:[cols.map(c=>c[0])],body,margin:{left:28,right:28,top:62},styles:{fontSize:8,cellPadding:4,overflow:'linebreak'},headStyles:{fillColor:[23,18,15],textColor:255,fontSize:8},columnStyles:Object.fromEntries(cols.map(([,k],i)=>[i,PKEYS.includes(k)?{halign:'right',cellWidth:keys().length>2?62:72}:k==='a'?{cellWidth:62}:k==='c'?{cellWidth:62}:{}])),didDrawPage:d=>{if(d.pageNumber>1)head()}});
+  }else{
+    const per=9,cw=(W-56-24)/3,ch=(H-62-40-24)/3;let n=0;
+    for(const x of r){
+      if(n%per===0){if(n)doc.addPage();head()}
+      const k=n%per,cx=28+(k%3)*(cw+12),cy=62+Math.floor(k/3)*(ch+12);
+      doc.setDrawColor(236,230,226);doc.roundedRect(cx,cy,cw,ch,8,8,'S');
+      const j=await toJpeg(x.a);const box=ch*.52;
+      if(j)doc.addImage(j,'JPEG',cx+(cw-box)/2,cy+8,box,box);else{doc.setFillColor(255,246,242);doc.rect(cx+(cw-box)/2,cy+8,box,box,'F');doc.setTextColor(...orange);doc.setFontSize(10);doc.text(x.a,cx+cw/2,cy+8+box/2,{align:'center'})}
+      let y=cy+box+22;doc.setTextColor(120);doc.setFontSize(7.5);doc.text(x.a+(x.c?' · '+x.c:''),cx+10,y);
+      y+=11;doc.setTextColor(25);doc.setFontSize(8.6);const lines=doc.splitTextToSize(x.n,cw-20).slice(0,3);doc.text(lines,cx+10,y);
+      doc.setFontSize(10);const py=cy+ch-12;
+      const ks=keys();doc.setFontSize(ks.length>2?7.6:10);
+      ks.forEach((k,ix)=>{const col=k==='dp'?[194,57,11]:k==='vdp'?[31,111,92]:[25,25,25];doc.setTextColor(...col);const t=(k==='vdp'?'VOL ':k==='dp'?'DP ':'SRP ')+peso(x[k]).replace('₱','P ');
+        if(ks.length===1)doc.text(t,cx+10,py);else if(ks.length===2)doc.text(t,ix?cx+cw-10:cx+10,py,ix?{align:'right'}:undefined);else doc.text(t,ix===0?cx+10:ix===1?cx+cw/2:cx+cw-10,py,ix===0?undefined:{align:ix===1?'center':'right'})});
+      n++;
+    }
+  }
+  foot();
+  const blob=doc.output('blob');
+  await save(`Mcdodo_${kind==='quick'?'Price_List':'Catalog'}_${today()}.pdf`,blob);
+}
+async function exportXlsx(){
+  toast('Preparing Excel…');
+  await load('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+  const r=filtered();
+  const rows=r.map(x=>{const o={'Model No':x.a,'Material Code':x.m,'Material Description':x.d,'Product Name':x.n,'Category':x.cat,'Series':x.s,'Color':x.c};keys().forEach(k=>o[XL[k]]=x[k]);Object.assign(o,{'Status':x.st,'Alternative Model':x.alt,'Barcode':x.bc,'Qty/Carton':x.q,'Images & Videos':x.kv,'Features':x.f});return o});
+  const ws=XLSX.utils.json_to_sheet(rows);ws['!cols']=Object.keys(rows[0]||{}).map(k=>({wch:k==='Features'?60:k==='Product Name'||k==='Material Description'?42:k==='Images & Videos'?30:14}));
+  const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Mcdodo Pricelist');
+  const out=XLSX.write(wb,{type:'array',bookType:'xlsx'});
+  await save(`Mcdodo_Pricelist_${today()}.xlsx`,new Blob([out]));
+}
+document.querySelectorAll('[data-exp]').forEach(b=>b.addEventListener('click',async()=>{
+  document.querySelectorAll('.menu').forEach(x=>x.classList.remove('open'));
+  try{const k=b.dataset.exp;if(k==='xlsx')await exportXlsx();else await exportPdf(k==='pdf-quick'?'quick':'catalog')}catch(e){console.error(e);toast('Export failed: '+(e.message||e))}
+}));
+
+
+/* Ask about Mcdodo */
+(async()=>{
+  let sample=null;
+  try{sample=window.claude&&window.claude.use?await window.claude.use('sample'):null}catch(e){sample=null}
+  if(!sample)return;
+  let canTools=false;try{const lim=await sample.limits();canTools=!!(lim&&lim.tools)}catch(e){}
+  const fab=$('#askFab'),panel=$('#askPanel'),log=$('#aLog'),inp=$('#aIn'),form=$('#aForm'),send=$('#aSend');
+  fab.hidden=false;
+  const P=D.srpOnly;
+  const fmt=v=>v==null?'-':v.toLocaleString('en-PH',{minimumFractionDigits:0,maximumFractionDigits:2});
+  const catalog=items.map(x=>[x.a,x.n,x.c||'-',x.cat,x.s||'-',fmt(x.srp),...(P?[]:[fmt(x.dp),fmt(x.vdp)]),x.st||'',x.alt?'alt: '+x.alt:''].join(' | ')).join('\n');
+  const shortF=x=>(x.f||'').replace(/\n{2,}/g,'\n').slice(0,1400);
+  const RULES=`You are "Ask about Mcdodo", the product assistant for the sales team of Iontech Inc., the exclusive distributor of Mcdodo (charging cables, chargers, power banks, car accessories, audio, cases and accessories) in the Philippines.
+
+Answer ONLY from the catalog below${canTools?' and the get_product_details tool':''}. If something is not in the data (stock levels, promos, delivery, warranty terms, products not listed), say you don't have that information and suggest checking with the Mcdodo product manager. Never invent products, specs or prices.
+
+Prices are in Philippine pesos (₱). ${P?'Only SRP (suggested retail price) is available. Do not discuss dealer, volume, cost or any other prices; if asked, say only SRP is shown on this pricelist.':'Price columns: SRP = suggested retail price; DP = dealer price (SRP less 20%); Volume DP = dealer price for orders of at least 100 pcs (MOQ 100), SRP less 25%. Do not discuss or estimate any other cost, FOB, landed cost or margin data; you do not have it.'}
+
+Style: short and practical for a salesperson talking to a customer or dealer. Use plain sentences or short "- " bullet lists. Write every model number as [[MODEL]], for example [[CA-4410]], so the page can link it. Use **bold** sparingly. ${canTools?'Call get_product_details when the question needs specs, compatibility, materials, ports, wattage details or package contents beyond the catalog line.':''}
+
+Catalog (model | name | color | category | series | SRP${P?'':' | DP | Volume DP'} | status | alternative model):
+${catalog}`;
+  const tools=canTools?[{name:'get_product_details',description:'Returns full features and specifications text, material code, quantity per carton and alternative model for up to 6 Mcdodo model numbers from this pricelist. Use for spec, compatibility or feature questions.',inputSchema:{type:'object',properties:{models:{type:'array',items:{type:'string'},description:'Model numbers like CA-4410'}},required:['models']},
+    execute:(input)=>{const ms=(Array.isArray(input.models)?input.models:[input.models]).map(v=>String(v).trim().toUpperCase()).slice(0,6);
+      return ms.map(m=>{const x=byArt[m];if(!x)return{model:m,error:'Not on this pricelist'};return{model:x.a,name:x.n,color:x.c,category:x.cat,series:x.s,srp:x.srp,...(P?{}:{dp:x.dp,volume_dp:x.vdp,volume_moq:'100 pcs'}),qty_per_carton:x.q,status:x.st,alternative:x.alt,features:shortF(x)}})}}]:undefined;
+  let turns=[],ctl=null,busy=false;
+  const STARTERS=P?['Which power banks support Qi2?','Compare CH-1533 and CH-1536','What 3m USB-C cables do you have?','Cheapest GaN charger with 2 USB-C ports?']:['Which power banks support Qi2, and their DP?','Compare CH-1533 and CH-1536','Volume DP for 100 pcs of CA-4410?','Suggest a bundle under ₱2,000 SRP for an iPhone 17 user'];
+  function rich(t){
+    let h=esc(t);
+    h=h.replace(/\[\[([A-Z]{2}-\d{4})\]\]/g,(m,a)=>byArt[a]?`<button type="button" class="mchip" data-a="${a}">${a}</button>`:a);
+    h=h.replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+    const out=[];let ul=false;
+    h.split('\n').forEach(l=>{const m=l.match(/^\s*[-•*]\s+(.*)/);if(m){if(!ul){out.push('<ul>');ul=true}out.push('<li>'+m[1]+'</li>')}else{if(ul){out.push('</ul>');ul=false}if(l.trim())out.push('<p>'+l+'</p>')}});
+    if(ul)out.push('</ul>');return out.join('');
+  }
+  function bubble(role,html){const d=document.createElement('div');d.className='msg '+role;d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+  function startScreen(){log.innerHTML='';const w=document.createElement('div');w.className='astart';w.innerHTML='<div>Ask anything about the '+items.length+' products on this pricelist. Try:</div>'+STARTERS.map(t=>`<button type="button" data-q="${esc(t)}">${esc(t)}</button>`).join('');log.appendChild(w)}
+  startScreen();
+  const open=()=>{panel.hidden=false;fab.hidden=true;setTimeout(()=>inp.focus(),30)};
+  const close=()=>{panel.hidden=true;fab.hidden=false};
+  fab.onclick=open;$('#askClose').onclick=close;
+  $('#askNew').onclick=()=>{if(ctl)ctl.abort();turns=[];startScreen()};
+  log.addEventListener('click',e=>{const c=e.target.closest('.mchip');if(c){openSheet(c.dataset.a);return}const b=e.target.closest('[data-q]');if(b){inp.value=b.dataset.q;ask()}});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask()}});
+  form.addEventListener('submit',e=>{e.preventDefault();if(busy){ctl&&ctl.abort();return}ask()});
+  const ERR={not_granted:'Claude access was not allowed for this page.',sampling_disabled:'Claude is not available on this account.',rate_limited:'Too many questions right now. Please wait a moment and try again.',session_expired:'Please sign in to Claude again.',refused:'I can’t answer that one. Try rephrasing.',prompt_too_large:'This chat got too long. Start a new chat with ↺.'};
+  async function ask(){
+    const qv=inp.value.trim();if(!qv||busy)return;
+    if(log.querySelector('.astart'))log.innerHTML='';
+    bubble('u',esc(qv));inp.value='';
+    turns.push({role:'user',content:qv});if(turns.length>12)turns=turns.slice(-12);while(turns[0]&&turns[0].role!=='user')turns.shift();
+    const b=bubble('a','<span class="think">Thinking…</span>');
+    busy=true;send.textContent='Stop';send.classList.add('stop');ctl=new AbortController();
+    try{
+      const opts={cache:false,signal:ctl.signal,modelTier:'quick',onText:({text})=>{b.innerHTML=rich(text);log.scrollTop=log.scrollHeight}};
+      if(tools){delete opts.cache;opts.tools=tools}
+      const {text}=await sample([{role:'user',content:RULES},...turns],opts);
+      b.innerHTML=rich(text);turns.push({role:'assistant',content:text});
+    }catch(e){
+      const code=e&&e.code;
+      if(code==='cancelled'){b.innerHTML=e.text?rich(e.text)+'<p class="think">Stopped.</p>':'<span class="think">Stopped.</span>'}
+      else{b.classList.add('err');b.innerHTML=(e&&e.text&&code!=='refused'?rich(e.text):'')+'<p>'+esc(ERR[code]||'Something went wrong. Please try again.')+'</p>';
+        if(code==='not_granted'||code==='sampling_disabled'){fab.remove();setTimeout(()=>panel.remove(),4000)}}
+      turns.pop();
+    }finally{busy=false;send.textContent='Send';send.classList.remove('stop');log.scrollTop=log.scrollHeight}
+  }
+})();
+
+all();
+})();
+</script>
+
+</body>
+</html>
