@@ -7,6 +7,7 @@
 <style>:root{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
+<script>window.MCDD_CHAT_URL='https://mcdodo-ask.niro-christine.workers.dev/';</script>
 <title>Mcdodo SRP Pricelist</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -522,8 +523,9 @@ document.querySelectorAll('[data-exp]').forEach(b=>b.addEventListener('click',as
 (async()=>{
   let sample=null;
   try{sample=window.claude&&window.claude.use?await window.claude.use('sample'):null}catch(e){sample=null}
-  if(!sample)return;
-  let canTools=false;try{const lim=await sample.limits();canTools=!!(lim&&lim.tools)}catch(e){}
+  const CHAT_URL=window.MCDD_CHAT_URL||'';
+  if(!sample&&!CHAT_URL)return;
+  let canTools=false;if(sample){try{const lim=await sample.limits();canTools=!!(lim&&lim.tools)}catch(e){}}
   const fab=$('#askFab'),panel=$('#askPanel'),log=$('#aLog'),inp=$('#aIn'),form=$('#aForm'),send=$('#aSend');
   fab.hidden=false;
   const P=D.srpOnly;
@@ -572,13 +574,19 @@ ${catalog}`;
     const b=bubble('a','<span class="think">Thinking…</span>');
     busy=true;send.textContent='Stop';send.classList.add('stop');ctl=new AbortController();
     try{
+      if(!sample){
+        const r=await fetch(CHAT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:turns}),signal:ctl.signal});
+        const j=await r.json().catch(()=>({}));
+        if(!r.ok||!j.text)throw{code:r.status===429?'rate_limited':(j.error||'upstream_error')};
+        b.innerHTML=rich(j.text);turns.push({role:'assistant',content:j.text});return;
+      }
       const opts={cache:false,signal:ctl.signal,modelTier:'quick',onText:({text})=>{b.innerHTML=rich(text);log.scrollTop=log.scrollHeight}};
       if(tools){delete opts.cache;opts.tools=tools}
       const {text}=await sample([{role:'user',content:RULES},...turns],opts);
       b.innerHTML=rich(text);turns.push({role:'assistant',content:text});
     }catch(e){
       const code=e&&e.code;
-      if(code==='cancelled'){b.innerHTML=e.text?rich(e.text)+'<p class="think">Stopped.</p>':'<span class="think">Stopped.</span>'}
+      if(code==='cancelled'||(e&&e.name==='AbortError')){b.innerHTML=e.text?rich(e.text)+'<p class="think">Stopped.</p>':'<span class="think">Stopped.</span>'}
       else{b.classList.add('err');b.innerHTML=(e&&e.text&&code!=='refused'?rich(e.text):'')+'<p>'+esc(ERR[code]||'Something went wrong. Please try again.')+'</p>';
         if(code==='not_granted'||code==='sampling_disabled'){fab.remove();setTimeout(()=>panel.remove(),4000)}}
       turns.pop();
